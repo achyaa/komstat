@@ -1,0 +1,69 @@
+# Calculate circumference of a circle
+circumference_circle <- function(radius) {
+  return(2 * pi * radius)
+}
+
+# Calculate circumference of a rectangle
+circumference_rectangle <- function(length, width) {
+  return(2 * (length + width))
+}
+
+# Calculate circumference of a triangle
+circumference_triangle <- function(a, b, c) {
+  return(a + b + c)
+}
+# Calculate area of a circle
+area_circle <- function(radius) {
+  return(pi * radius^2)
+}
+
+# Calculate area of a rectangle
+area_rectangle <- function(length, width) {
+  return(length * width)
+}
+
+# Calculate area of a triangle using Heron's formula
+area_triangle <- function(a, b, c) {
+  s <- (a + b + c) / 2
+  return(sqrt(s * (s - a) * (s - b) * (s - c)))
+}
+#' Calculate the circumference of a circle
+#'
+#' @param radius The radius of the circle
+#' @return The circumference of the circle
+#' @examples
+#' circumference_circle(5)
+circumference_circle <- function(radius) {
+  return(2 * pi * radius)
+}
+devtools::document()
+library(testthat)
+library(shapes)
+
+test_that("circumference_circle works", {
+  expect_equal(circumference_circle(1), 2 * pi)
+})
+
+test_that("circumference_rectangle works", {
+  expect_equal(circumference_rectangle(2, 3), 10)
+})
+
+test_that("circumference_triangle works", {
+  expect_equal(circumference_triangle(3, 4, 5), 12)
+})
+devtools::test()
+devtools::build()
+devtools::install()
+
+library(shapes)
+
+# Calculate circumference
+circumference_circle(5)
+circumference_rectangle(2, 3)
+circumference_triangle(3, 4, 5)
+
+# Calculate area
+area_circle(5)
+area_rectangle(2, 3)
+area_triangle(3, 4, 5)
+
